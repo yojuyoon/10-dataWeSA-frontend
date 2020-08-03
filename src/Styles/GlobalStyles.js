@@ -1,4 +1,9 @@
-html,
+import { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
+
+const GlobalStyles = createGlobalStyle`
+    ${reset}
+    html,
 body,
 div,
 span,
@@ -113,14 +118,14 @@ q {
 blockquote {
   &:before,
   &:after {
-    content: "";
+    content: “”;
     content: none;
   }
 }
 q {
   &:before,
   &:after {
-    content: "";
+    content: “”;
     content: none;
   }
 }
@@ -130,4 +135,8 @@ table {
 }
 * {
   box-sizing: border-box;
+  background-color:red;
 }
+`;
+
+export default GlobalStyles;
