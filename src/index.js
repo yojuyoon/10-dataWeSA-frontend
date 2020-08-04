@@ -10,5 +10,5 @@ ReactDOM.render(
     <GlobalStyles />
     <Routes />
   </ThemeProvider>,
-  document.getElementById("root"),
+  document.getElementById("root")
 );

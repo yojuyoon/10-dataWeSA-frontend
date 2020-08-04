@@ -35,8 +35,9 @@ function CoronaVirus() {
       {data.length && (
         <DataTable selectedState={selectedState} setSelectedState={setSelectedState} data={data} />
       )}
+      <LinePlotComponent />
     </>
-  );
+    )
 }
 
 export default CoronaVirus;
