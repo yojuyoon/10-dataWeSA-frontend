@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import styled from "styled-components";
+import React from "react";
+import CoronaMain from "../Components/CoronaMain";
 
-function CoronaVirus() {
-  return <></>;
-}
+const CoronaVirus = () => {
+  return <CoronaMain />;
+};
 
 export default CoronaVirus;
