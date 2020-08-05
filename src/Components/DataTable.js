@@ -22,6 +22,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 // import DeleteIcon from "@material-ui/icons/Delete";
 // import FilterListIcon from "@material-ui/icons/FilterList";
 // import { red } from "@material-ui/core/colors";
+import theme from "../Styles/Theme";
 
 function createData(
   name,
@@ -34,6 +35,7 @@ function createData(
   confirmed_deaths,
   positive_tests,
   total_tests,
+  total_hospitalized,
   gap_graph,
 ) {
   return {
@@ -47,32 +49,10 @@ function createData(
     confirmed_deaths,
     positive_tests,
     total_tests,
+    total_hospitalized,
     gap_graph,
   };
 }
-
-// const rows = [
-//   createData("Cupcake", 305, 3.7, 67, 4.3, 1, 1, 1, 1, 1, 1),
-//   createData("Donut", 452, 25.0, 51, 4.9, 1, 1, 1, 1, 1, 1),
-//   createData("Eclair", 262, 16.0, 24, 6.0, 1, 1, 1, 1, 1, 1),
-//   createData("Frozen yoghurt", 159, 6.0, 24, 4.0, 1, 1, 1, 1, 1, 1),
-//   createData("Gingerbread", 356, 16.0, 49, 3.9, 1, 1, 1, 1, 1, 1),
-//   createData("Honeycomb", 408, 3.2, 87, 6.5, 1, 1, 1, 1, 1, 1),
-//   createData("Ice cream sandwich", 237, 9.0, 37, 4.3, 1, 1, 1, 1, 1, 1),
-//   createData("Jelly Bean", 375, 0.0, 94, 0.0, 1, 1, 1, 1, 1, 1),
-//   createData("KitKat", 518, 26.0, 65, 7.0, 1, 1, 1, 1, 1, 1),
-//   createData("Lollipop", 392, 0.2, 98, 0.0, 1, 1, 1, 1, 1, 1),
-//   createData("Marshmallow", 318, 0, 81, 2.0, 1, 1, 1, 1, 1, 1),
-//   createData("Nougat", 360, 19.0, 9, 37.0, 1, 1, 1, 1, 1, 1),
-//   createData("Oreo", 437, 18.0, 63, 4.0, 1, 1, 1, 1, 1, 1),
-//   createData("A", 437, 18.0, 63, 4.0, 1, 1, 1, 1, 1, 1),
-//   createData("B", 437, 18.0, 63, 4.0, 1, 1, 1, 1, 1, 1),
-//   createData("C", 437, 18.0, 63, 4.0, 1, 1, 1, 1, 1, 1),
-//   createData("D", 437, 18.0, 63, 4.0, 1, 1, 1, 1, 1, 1),
-//   createData("E", 437, 18.0, 63, 4.0, 1, 1, 1, 1, 1, 1),
-//   createData("F", 437, 18.0, 63, 4.0, 1, 1, 1, 1, 1, 1),
-//   createData("G", 437, 18.0, 63, 4.0, 1, 1, 1, 1, 1, 1),
-// ];
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -301,6 +281,7 @@ export default function DataTable(props) {
       datas.confirmed_deaths,
       datas.positive_tests,
       datas.total_tests,
+      datas.total_hospitalized,
       datas.gap_graph,
     ),
   );
@@ -446,11 +427,9 @@ export default function DataTable(props) {
                         <TableCell className={classes.tableCell} align="left" padding="none">
                           {Number(row.total_tests).toLocaleString()}
                         </TableCell>
-                        <TableCell
-                          className={classes.tableCell}
-                          align="left"
-                          padding="none"
-                        ></TableCell>
+                        <TableCell className={classes.tableCell} align="left" padding="none">
+                          {Number(row.total_hospitalized).toLocaleString()}
+                        </TableCell>
                         <TableCell className={classes.tableCell} align="left" padding="none">
                           <div dangerouslySetInnerHTML={{ __html: row.gap_graph }} />
                         </TableCell>
@@ -485,11 +464,12 @@ export default function DataTable(props) {
 }
 
 const DataTableContainer = styled.div`
-  margin: 0 5%;
-
+  width: 100%;
+  height: 110%;
+  padding: 0 4%;
+  background-color: ${theme.midgrey};
   div {
     -ms-overflow-style: none;
-
     &::-webkit-scrollbar {
       display: none;
     }
@@ -497,7 +477,8 @@ const DataTableContainer = styled.div`
 `;
 
 const Title = styled.h1`
-  margin: 50px 0;
+  padding-top: 50px;
+  margin-bottom: 50px;
   text-align: center;
   font-size: 40px;
   font-family: ${(props) => props.theme.fontTitle};
@@ -510,7 +491,6 @@ const CustomRow = styled(TableRow)`
       width: 20%;
       padding-left: 5%;
     }
-
     &:nth-child(2) {
       width: 15%;
     }
