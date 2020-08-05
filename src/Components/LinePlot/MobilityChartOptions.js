@@ -43,13 +43,7 @@ export const options = {
         formatter: function () {
           var last = this.series.data[this.series.data.length - 1];
           if (this.point.category === last.category) {
-            return (
-              '<span style="color:' +
-              this.series.color +
-              '">' +
-              this.series.name +
-              "</span>"
-            );
+            return '<span style="color:' + this.series.color + '">' + this.series.name + "</span>";
           }
           return "";
         },

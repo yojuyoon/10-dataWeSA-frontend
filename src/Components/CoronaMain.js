@@ -44,18 +44,16 @@ function CoronaMain() {
       <TextContainer>
         <div>
           <p>
-            Based on publicly available data, how is COVID-19 (also known as
-            Coronavirus) spreading in the United States? How fast is it growing
-            in each state? And how prepared may different states be to cope with
-            the spread of this global pandemic?
+            Based on publicly available data, how is COVID-19 (also known as Coronavirus) spreading
+            in the United States? How fast is it growing in each state? And how prepared may
+            different states be to cope with the spread of this global pandemic?
           </p>
         </div>
         <div>
           <p>
-            At Data USA, our mission is to visualize and distribute open source
-            data of U.S. public interest. To track the evolution and trajectory
-            of COVID-19, we have created a series of interactive graphics. These
-            visualizations are designed to put the spread of COVID-19 in
+            At Data USA, our mission is to visualize and distribute open source data of U.S. public
+            interest. To track the evolution and trajectory of COVID-19, we have created a series of
+            interactive graphics. These visualizations are designed to put the spread of COVID-19 in
             context.
           </p>
         </div>
