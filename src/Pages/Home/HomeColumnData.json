@@ -1,0 +1,56 @@
+[
+  {
+    "id": 0,
+    "title": "Viz Builder",
+    "list": ["DEPARTMENT", "OPIOID", "ADMISSIONS", "WORKERS", "FOREIGN"]
+  },
+  {
+    "id": 1,
+    "title": "Cities & Places",
+    "list": [
+      "MINNEAPOLIS",
+      "PHILADELPHIA",
+      "LOS ANGELES",
+      "LOUISVILLE",
+      "DALLS"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Industires",
+    "list": [
+      "RESTURANT",
+      "MILITARY",
+      "AIR TRANSPORT",
+      "CHILD DAY",
+      "SPECTOR SPORTS"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Jobs",
+    "list": [
+      "POLICE OFFICERS",
+      "SCHOOL TEACHER",
+      "RETAIL SALESPERSONS",
+      "CHILDCARE",
+      "EMERGENCY"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Universities",
+    "list": [
+      "MASSACHURSETTS",
+      "MARYLAND-COLLEGE",
+      "DAME",
+      "CHICAGO",
+      "NORTHEATERN"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "CART",
+    "list": ["FEDERAL AGENCY", "AVERAGE", "SMOKING", "POPULATION", "MEDIAN"]
+  }
+]
