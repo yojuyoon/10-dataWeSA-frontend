@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DataTable from "../Components/DataTable";
-import { dataTableAPI } from "../config";
+import Daily from "../Components/Daily";
+import { tableDataAPI } from "../config";
 
 function CoronaVirus() {
   const [loading, setLoading] = useState(false);
@@ -9,35 +10,35 @@ function CoronaVirus() {
   const [data, setData] = useState(null);
   let [selectedState, setSelectedState] = useState([]);
 
-  useEffect(() => {
-    const getApi = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        setData(null);
-        const response = await axios.get(`${dataTableAPI}`);
-        setData(response.data.data);
-      } catch (e) {
-        setError(e);
-      }
-      setLoading(false);
-    };
+  // useEffect(() => {
+  //   const getApi = async () => {
+  //     try {
+  //       setLoading(true);
+  //       setError(null);
+  //       setData(null);
+  //       const response = await axios.get(`${tableDataAPI}`);
+  //       setData(response.data.data);
+  //     } catch (e) {
+  //       setError(e);
+  //     }
+  //     setLoading(false);
+  //   };
 
-    getApi();
-  }, []);
+  //   getApi();
+  // }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error!</div>;
-  if (!data) return null;
+  // if (loading) return <div>Loading...</div>;
+  // if (error) return <div>Error!</div>;
+  // if (!data) return null;
 
   return (
     <>
-      {data.length && (
+      {/* {data.length && (
         <DataTable selectedState={selectedState} setSelectedState={setSelectedState} data={data} />
-      )}
-      <LinePlotComponent />
+      )} */}
+      <Daily />
     </>
-    )
+  );
 }
 
 export default CoronaVirus;
