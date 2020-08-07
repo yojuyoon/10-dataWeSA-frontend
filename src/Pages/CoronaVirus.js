@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DataTable from "../Components/DataTable";
+import LinePlotComponent from "../Components/LinePlot/LinePlotComponent";
+import CoronaMain from "../Components/CoronaMain";
+import ChartMap from "../Components/ChartMap/ChartMap";
 import { dataTableAPI } from "../config";
 
 function CoronaVirus() {
@@ -32,12 +35,18 @@ function CoronaVirus() {
 
   return (
     <>
+      <CoronaMain />
       {data.length && (
-        <DataTable selectedState={selectedState} setSelectedState={setSelectedState} data={data} />
+        <DataTable
+          selectedState={selectedState}
+          setSelectedState={setSelectedState}
+          data={data}
+        />
       )}
       <LinePlotComponent />
+      <ChartMap />
     </>
-    )
+  );
 }
 
 export default CoronaVirus;
