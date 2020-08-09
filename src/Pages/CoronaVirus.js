@@ -5,7 +5,7 @@ import CoronaMain from "../Components/CoronaMain";
 import DataTable from "../Components/DataTable";
 import Daily from "../Components/Daily";
 import LinePlotComponent from "../Components/LinePlot/LinePlotComponent";
-import ChartMap from "../Components/ChartMap/ChartMap";
+import ChartMapComponents from "../Components/ChartMap/ChartMapComponents";
 import theme from "../Styles/Theme";
 import { dataTableAPI } from "../config";
 
@@ -46,7 +46,7 @@ function CoronaVirus() {
       )}
       <Daily />
       <LinePlotComponent />
-      <ChartMap />
+      <ChartMapComponents />
     </CoronaContainer>
   );
 }
