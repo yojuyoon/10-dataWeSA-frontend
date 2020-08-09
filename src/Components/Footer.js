@@ -52,14 +52,6 @@ function Footer({ history }) {
                 <span>→</span>
               </div>
             </EmailInputContainer>
-            <div className="email-input">
-              <span>✉︎</span>
-              <input placeholder="your email address" />
-              <div className="btn-sign-container">
-                <div className="btn-sign">SIGN UP</div>
-                <span>→</span>
-              </div>
-            </div>
           </EmailContainer>
           <LogoContainer>
             <a href="http://www2.deloitte.com/us/en.html">
