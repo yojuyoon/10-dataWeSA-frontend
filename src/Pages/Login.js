@@ -1,8 +1,12 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { KakaoLogin } from "../Components/SocialLogin/KakaoLogin";
 import styled from "styled-components";
 import theme from "../Styles/Theme";
 
 export default function Login() {
+  let history = useHistory();
+
   return (
     <LoginContainer>
       <div className="backgroundColor">
@@ -21,6 +25,10 @@ export default function Login() {
             <div className="inputInfo">Password</div>
             <input type="password" />
           </InputBox>
+          <CheckBox>
+            <input type="checkbox" />
+            Stay Signed in
+          </CheckBox>
           <ButtonBox>
             <button className="google">
               <img alt="구글" src="/images/google.png" />
@@ -30,7 +38,7 @@ export default function Login() {
               <img alt="페이스북" src="/images/facebook.png" />
               <span>Facebook Login</span>
             </button>
-            <button className="kakao">
+            <button className="kakao" onClick={() => KakaoLogin(history)}>
               <img alt="카카오" src="/images/kakao.png" />
               <span>Kakaotalk Login</span>
             </button>
@@ -105,7 +113,6 @@ const LoginBox = styled.div`
 
 const InputBox = styled.div`
   width: 90%;
-  height: 40%;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -128,6 +135,16 @@ const InputBox = styled.div`
     &:focus {
       outline: none;
     }
+  }
+`;
+
+const CheckBox = styled.div`
+  margin-bottom: 50%;
+  padding-left: 4%;
+  color: ${theme.white};
+
+  input {
+    margin-right: 3%;
   }
 `;
 
