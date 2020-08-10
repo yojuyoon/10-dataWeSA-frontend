@@ -14,11 +14,9 @@ function Google() {
 
   const googleSDK = () => {
     window.googleSDKLoaded = () => {
-      console.log(window.gapi);
       window.gapi.load("auth2", () => {
         const auth2 = window.gapi.auth2.init({
-          client_id:
-            "347610267573-8r3r698evj630v56r5bes4q6dks1rqf0.apps.googleusercontent.com",
+          client_id: "347610267573-8r3r698evj630v56r5bes4q6dks1rqf0.apps.googleusercontent.com",
           scope: "profile email",
         });
 
@@ -27,19 +25,12 @@ function Google() {
           {},
           (googleUser) => {
             const profile = googleUser.getBasicProfile();
-            console.log(profile);
-            console.log(googleUser.getAuthResponse());
-            console.log(`Token || ${googleUser.getAuthResponse().id_token}`);
             setToken(googleUser.getAuthResponse().id_token);
-            console.log(`ID: ${profile.getId()}`);
-            console.log(`Name: ${profile.getName()}`);
-            console.log(`Image URL: ${profile.getImageUrl()}`);
-            console.log(`Email: ${profile.getEmail()}`);
             GoogleApiPOST(googleUser.getAuthResponse().id_token);
           },
           (error) => {
             alert(JSON.stringify(error, undefined, 2));
-          }
+          },
         );
       });
     };

@@ -39,7 +39,6 @@ const ChartMap = ({ id }) => {
         timeout: 6000,
       })
       .then((res) => {
-        console.log(res.data.data);
         setOutputData(res.data.data);
         setLoading(false);
       })

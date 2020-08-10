@@ -1,0 +1,135 @@
+{
+  "data": [
+    {
+      "group": "Service Occupations",
+      "name": "Waiters & waitresses",
+      "value": "21.12489119170984"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Cooks",
+      "value": "17.74463212435233"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Food preparation workeers",
+      "value": "7.82116062176166"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Firstline supervisors of food preparation & serving workers",
+      "value": "4.46812435233161"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Fast food and counter workers",
+      "value": "4.13030051813472"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Chefs & head cooks",
+      "value": "3.5080518134715"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Hosts & hostesses, restaurant, lounge, & coffee shop",
+      "value": "3.06938860103627"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Dishwashers",
+      "value": "2.70977202072539"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Bartenders",
+      "value": "2.70282901554404"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Dining room and cafeteria attendants and bartender helpers",
+      "value": "1.96856994818653"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Janitors & building cleaners",
+      "value": "1.0220310880829"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Food servers, nonrestaurant",
+      "value": "0.18446632124352"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Food preparation and serving related workers, all other",
+      "value": "0.10533678756477"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Maids & housekeeping cleaners",
+      "value": "0.08495336787564767"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Personal care & service workers, all other",
+      "value": "0.07121243523316062"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Security guards & gaming surveillance officers",
+      "value": "0.06458031088082902"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Baggage porters, bellhops, & concierges",
+      "value": "0.03907772020725389"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Other entertainment attendants and related workers",
+      "value": "0.01973056994818653"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Landscaping and groundskeeping workers",
+      "value": "0.01678756476683938"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Recreation workers",
+      "value": "0.01398963730569948"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Ushers, lobby attendants, & ticket takers",
+      "value": "0.01313989637305699"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Firstline supervisors of housekeeping & janitorial workers",
+      "value": "0.01370984455958549"
+    },
+    {
+      "group": "Service Occupations",
+      "name": "Service Occupations",
+      "value": "0.01269430051813472"
+    },
+    { "group": "Sales & Office Occupations", "name": "Cashiers", "value": 12 },
+    {
+      "group": "Management, business, science, & arts occupations",
+      "name": "Food service managers",
+      "value": 12
+    },
+    {
+      "group": "Production, Transportation, & Material Moving Occupations",
+      "name": "Driver/sales workers & truck drivers",
+      "value": 4.5
+    },
+    {
+      "group": "Natural resources, construction, & maintenance occupations",
+      "name": "Maintenance & repair workers, general",
+      "value": 0.2
+    }
+  ]
+}

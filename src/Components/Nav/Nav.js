@@ -13,8 +13,7 @@ function Nav() {
   }, [scrollTop]);
 
   const handleScroll = () => {
-    const winScroll =
-      document.body.scrollTop || document.documentElement.scrollTop;
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const { scrollHeight, clientHeight } = document.documentElement;
     const scrollTop = winScroll / (scrollHeight - clientHeight);
     setScrollTop(scrollTop);
@@ -50,7 +49,7 @@ function Nav() {
         {scrollTop >= 0.047 && <span>COVID-19 in the United States</span>}
       </HomeTab>
       <RightTab>
-        <img alt="cart" src="./images/cart.svg" />
+        <img alt="cart" src="./images/svg/cart.svg" />
         <div>☌</div>
       </RightTab>
       <SideNav

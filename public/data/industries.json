@@ -1,0 +1,32 @@
+{
+  "stat": [
+    {
+      "title": "WORKFORCE",
+      "value": "11.9M",
+      "subTitle": "2018 BLS ESTIMATE"
+    },
+    {
+      "title": "AVERAGE EMPLOYEE AGE",
+      "value": "31.6"
+    },
+    {
+      "title": "ESTIMATED JOB GROWTH",
+      "value": "1.1%",
+      "subTitle": "10-YEAR PROJECTION"
+    },
+    {
+      "title": "AVERAGE SALARY",
+      "value": "$21,801",
+      "subTitle": ""
+    },
+    {
+      "title": "AVERAGE MALE SALARY",
+      "value": "$25,523"
+    },
+    {
+      "title": "AVERAGE FEMALE SALARY",
+      "value": "$18,440",
+      "subTitle": ""
+    }
+  ]
+}
