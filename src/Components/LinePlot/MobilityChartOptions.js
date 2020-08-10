@@ -1,7 +1,7 @@
 export const options = {
   chart: {
     type: "spline",
-    width: 1300,
+    width: 1000,
     height: 450,
     backgroundColor: "#F6F6F6",
   },
@@ -43,7 +43,7 @@ export const options = {
         formatter: function () {
           var last = this.series.data[this.series.data.length - 1];
           if (this.point.category === last.category) {
-            return '<span style="color:' + this.series.color + '">' + this.series.name + "</span>";
+            return `<span style="color: ${this.series.color}"> ${this.series.name} </span>`;
           }
           return "";
         },

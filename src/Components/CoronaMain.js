@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { StatDataAPI } from "../config";
 import styled from "styled-components";
 import { flexCenter } from "../Styles/Theme";
+import { StatDataAPI } from "../config";
 
 function CoronaMain() {
   const [statData, setStatData] = useState([]);
@@ -44,16 +44,18 @@ function CoronaMain() {
       <TextContainer>
         <div>
           <p>
-            Based on publicly available data, how is COVID-19 (also known as Coronavirus) spreading
-            in the United States? How fast is it growing in each state? And how prepared may
-            different states be to cope with the spread of this global pandemic?
+            Based on publicly available data, how is COVID-19 (also known as
+            Coronavirus) spreading in the United States? How fast is it growing
+            in each state? And how prepared may different states be to cope with
+            the spread of this global pandemic?
           </p>
         </div>
         <div>
           <p>
-            At Data USA, our mission is to visualize and distribute open source data of U.S. public
-            interest. To track the evolution and trajectory of COVID-19, we have created a series of
-            interactive graphics. These visualizations are designed to put the spread of COVID-19 in
+            At Data USA, our mission is to visualize and distribute open source
+            data of U.S. public interest. To track the evolution and trajectory
+            of COVID-19, we have created a series of interactive graphics. These
+            visualizations are designed to put the spread of COVID-19 in
             context.
           </p>
         </div>
@@ -167,30 +169,29 @@ const TextContainer = styled.div`
 `;
 
 const PageCategoryContainer = styled.div`
-        margin: 30px 0;
-        display: flex;
-        justify-content: center;
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
 
-        a{
-          margin: 0 30px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: ${(props) => props.theme.white}
-        }
+  a {
+    margin: 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: ${(props) => props.theme.white};
+  }
 
-        img{
-            width: 30px;
-        }
+  img {
+    width: 30px;
+  }
 
-        span{
-            width: 90px;
-            font-size: 13px;
-            text-align: center;
-            line-height: 20px;
-            font-family: ${(props) => props.theme.fontContent}
-        }
-    }
+  span {
+    width: 90px;
+    font-size: 13px;
+    text-align: center;
+    line-height: 20px;
+    font-family: ${(props) => props.theme.fontContent};
+  }
 `;

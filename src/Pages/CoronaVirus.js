@@ -38,7 +38,11 @@ function CoronaVirus() {
     <CoronaContainer>
       <CoronaMain />
       {data.length && (
-        <DataTable selectedState={selectedState} setSelectedState={setSelectedState} data={data} />
+        <DataTable
+          selectedState={selectedState}
+          setSelectedState={setSelectedState}
+          data={data}
+        />
       )}
       <Daily />
       <LinePlotComponent />

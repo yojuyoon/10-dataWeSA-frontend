@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import theme from "../../Styles/Theme";
 
-function SideNav({ sideMenu, hideSideMenu }) {
+function SideNav({ sideMenu, hideSideMenu, refreshSideBar }) {
   return (
     <>
       <SideMenuBackground sideMenu={sideMenu} onClick={hideSideMenu} />
@@ -12,8 +12,10 @@ function SideNav({ sideMenu, hideSideMenu }) {
           <div onClick={hideSideMenu} className="closeBtn">
             X
           </div>
-          <Link to="/">HOME</Link>
-          <Link to="/">
+          <Link to="/home" onClick={refreshSideBar}>
+            HOME
+          </Link>
+          <Link to="/" onClick={refreshSideBar}>
             CORONA VIRUS <span>NEW</span>
           </Link>
           <li>EXPLORE</li>
@@ -32,8 +34,12 @@ function SideNav({ sideMenu, hideSideMenu }) {
           <li>ABOUT</li>
           <li>DATA SOURCES</li>
           <LogoContainer>
-            <img alt="logo" src="/images/deloitte.png" />
-            <img alt="logo" src="/images/datawheel.png" />
+            <a href="http://www2.deloitte.com/us/en.html">
+              <img alt="deloitte" src="/images/deloitte.png" />
+            </a>
+            <a href="https://www.datawheel.us/">
+              <img alt="datawheel" src="/images/datawheel.png" />
+            </a>
           </LogoContainer>
         </MenuContents>
       </SideMenuContainer>
@@ -44,10 +50,10 @@ function SideNav({ sideMenu, hideSideMenu }) {
 export default SideNav;
 
 const SideMenuBackground = styled.div`
-  width: 100%;
   height: 100vh;
-  top: 40px;
+  top: 0px;
   left: 0;
+  right: 0;
   position: fixed;
   background-color: ${theme.white};
   opacity: 0.4;

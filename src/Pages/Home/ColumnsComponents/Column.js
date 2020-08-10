@@ -11,8 +11,8 @@ const Column = ({ column }) => {
 };
 
 const ColumnContainer = styled.div`
-  width: 231px;
-  height: 131px;
+  width: 210px;
+  height: 121px;
   font-size: 18px;
   margin: 15px auto;
   text-align: center;
@@ -26,8 +26,8 @@ const ColumnContainer = styled.div`
   }
 
   .bg {
-    width: 229px;
-    height: 129px;
+    width: 210px;
+    height: 121px;
     position: absolute;
     ${flexCenter};
     background-color: rgba(0, 0, 0, 0.5);

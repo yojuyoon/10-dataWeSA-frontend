@@ -12,10 +12,6 @@ function Nav() {
     window.addEventListener("scroll", handleScroll);
   }, [scrollTop]);
 
-  // useEffect(() => {
-  //   window.removeEventListener("scroll", handleScroll);
-  // }, []);
-
   const handleScroll = () => {
     const winScroll =
       document.body.scrollTop || document.documentElement.scrollTop;
@@ -32,6 +28,10 @@ function Nav() {
   const hideSideMenu = (props) => {
     setsideMenu(false);
     document.body.style.overflow = "unset";
+  };
+
+  const refreshSideBar = (props) => {
+    setsideMenu(null);
   };
 
   return (
@@ -52,7 +52,11 @@ function Nav() {
         <img alt="cart" src="./images/cart.svg" />
         <div>☌</div>
       </RightTab>
-      <SideNav sideMenu={sideMenu} hideSideMenu={hideSideMenu} />
+      <SideNav
+        sideMenu={sideMenu}
+        hideSideMenu={hideSideMenu}
+        refreshSideBar={refreshSideBar}
+      />
     </NavContainer>
   );
 }
@@ -60,10 +64,10 @@ function Nav() {
 export default Nav;
 
 const NavContainer = styled.nav`
-  width: 100%;
   height: 40px;
-  left: 0;
   top: 0;
+  left: 0;
+  right: 0;
   position: fixed;
   ${flexCenter};
   background-color: ${(props) => props.scrollTop >= 0.047 && "#141B2E"};

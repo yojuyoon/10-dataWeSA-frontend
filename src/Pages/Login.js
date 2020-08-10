@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { KakaoLogin } from "../Components/SocialLogin/KakaoLogin";
+import Google from "../Components/SocialLogin/Google";
 import styled from "styled-components";
 import theme from "../Styles/Theme";
 
@@ -12,10 +13,14 @@ export default function Login() {
       <div className="backgroundColor">
         <HelloBox>
           <div className="welcome">Welcome!</div>
-          <div className="hello">Hello, DATA USA</div>
+          <div className="hello">Hello, DATA WeSA</div>
           <div className="account">Don't have an account?</div>
-          <div className="register">Register to access all the features of our service.</div>
-          <div className="manage">Manage your business in one place. It's free!</div>
+          <div className="register">
+            Register to access all the features of our service.
+          </div>
+          <div className="manage">
+            Manage your business in one place. It's free!
+          </div>
         </HelloBox>
         <LoginBox>
           <div className="loginText">LOGIN</div>
@@ -30,17 +35,14 @@ export default function Login() {
             Stay Signed in
           </CheckBox>
           <ButtonBox>
-            <button className="google">
-              <img alt="구글" src="/images/google.png" />
-              <span>Google Login</span>
-            </button>
+            <Google />
             <button className="facebook">
               <img alt="페이스북" src="/images/facebook.png" />
-              <span>Facebook Login</span>
+              <span>Login with Facebook</span>
             </button>
             <button className="kakao" onClick={() => KakaoLogin(history)}>
               <img alt="카카오" src="/images/kakao.png" />
-              <span>Kakaotalk Login</span>
+              <span>Login with Kakao</span>
             </button>
           </ButtonBox>
         </LoginBox>
@@ -53,7 +55,7 @@ const LoginContainer = styled.div`
   width: 100%;
   height: 100%;
   background-image: url("/images/usa.jpg");
-  background-size: 100%;
+  background-size: 110%;
   .backgroundColor {
     width: 100%;
     height: 100%;
@@ -85,11 +87,14 @@ const HelloBox = styled.div`
       font-size: 50px;
     }
     &.register {
-      padding-top: 2%;
+      margin-top: 10px;
+      padding: 3px 0;
       font-size: 20px;
+      font-family: ${theme.fontContent};
     }
     &.manage {
       font-size: 20px;
+      font-family: ${theme.fontContent};
     }
   }
 `;
@@ -154,8 +159,8 @@ const ButtonBox = styled.div`
   margin: 10% auto 0;
   button {
     width: 100%;
-    height: 40%;
-    margin-bottom: 2%;
+    height: 50px;
+    margin-bottom: 4px;
     border: none;
     padding-left: 5%;
     display: flex;
@@ -168,7 +173,7 @@ const ButtonBox = styled.div`
       width: 10%;
     }
     span {
-      margin-left: 3%;
+      margin-left: 4%;
       font-family: ${theme.fontContent};
       font-size: 16px;
       font-weight: bold;
@@ -184,7 +189,7 @@ const ButtonBox = styled.div`
       background-color: #f3db00;
       padding-left: 6%;
       img {
-        width: 7%;
+        width: 8%;
       }
     }
   }
