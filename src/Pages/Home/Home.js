@@ -7,50 +7,51 @@ import HomeColumnData from "./HomeColumnData.json";
 
 const Home = () => {
   return (
-    <HomeContainer>
-      <BackGround>
-        <img alt="logo-shadow" src="/images/logo-shadow.png" />
-        <h1>
-          <a href="https://datausa.io/visualize">EXPLORE</a>,
-          <a href="https://datausa.io/map">MAP</a>, AND
-          <a href="https://datausa.io/profile/geo/chicago-il/?compare=seattle-wa">
-            DOWNLOAD
-          </a>
-          U.S. DATA
-        </h1>
-        <InputContainer>
-          <IoIosSearch size="40" color="#ef6145" />
-          <input placeholder="ex. California, Hostpitals, Graphic Design" />
-          <SearchButton>Search</SearchButton>
-        </InputContainer>
-        <LogoContainer>
-          <a href="http://www2.deloitte.com/us/en.html">
-            <img alt="deloitte" src="/images/deloitte.png" />
-          </a>
-          <a href="http://www2.deloitte.com/us/en.html">
-            <img alt="datawheel" src="/images/datawheel.png" />
-          </a>
-        </LogoContainer>
-
-        <ColumnsContainer>
-          <div className="columns-absolute">
-            {HomeColumnData.map((columnData) => (
-              <ColumnList
-                key={columnData.id}
-                title={columnData.title}
-                list={columnData.list}
-                id={columnData.id}
-              />
-            ))}
-          </div>
-        </ColumnsContainer>
-      </BackGround>
-    </HomeContainer>
+    <>
+      <HomeContainer>
+        <BackGround>
+          <img alt="logo-shadow" src="/images/logo-shadow.png" />
+          <h1>
+            <a href="https://datausa.io/visualize">EXPLORE</a>,
+            <a href="https://datausa.io/map">MAP</a>, AND
+            <a href="https://datausa.io/profile/geo/chicago-il/?compare=seattle-wa">
+              DOWNLOAD
+            </a>
+            U.S. DATA
+          </h1>
+          <InputContainer>
+            <IoIosSearch size="40" color="#ef6145" />
+            <input placeholder="ex. California, Hostpitals, Graphic Design" />
+            <SearchButton>Search</SearchButton>
+          </InputContainer>
+          <LogoContainer>
+            <a href="http://www2.deloitte.com/us/en.html">
+              <img alt="deloitte" src="/images/deloitte.png" />
+            </a>
+            <a href="http://www2.deloitte.com/us/en.html">
+              <img alt="datawheel" src="/images/datawheel.png" />
+            </a>
+          </LogoContainer>
+          <ColumnsContainer>
+            <div className="columns-absolute">
+              {HomeColumnData.map((columnData) => (
+                <ColumnList
+                  key={columnData.id}
+                  title={columnData.title}
+                  list={columnData.list}
+                  id={columnData.id}
+                />
+              ))}
+            </div>
+          </ColumnsContainer>
+        </BackGround>
+      </HomeContainer>
+      <ColumnBackground />
+    </>
   );
 };
 
 const HomeContainer = styled.div`
-  height: 100%;
   background-color: ${theme.darknavy};
 
   img {
@@ -71,7 +72,7 @@ const HomeContainer = styled.div`
       margin: 0 5px;
       text-decoration: none;
       color: ${theme.white};
-      border-bottom: 5px solid hsla(0, 0%, 100%, 0.5);
+      border-bottom: 3px solid hsla(0, 0%, 100%, 0.5);
       cursor: pointer;
 
       &:hover {
@@ -82,9 +83,7 @@ const HomeContainer = styled.div`
 `;
 
 const BackGround = styled.div`
-  height: 100%;
-  width: 100%;
-  position: absolute;
+  background-size: cover;
   text-align: center;
   background-image: url("https://datausa.io/images/home/bg/rocky.jpg");
   border-bottom: 1px solid #ddd;
@@ -94,7 +93,6 @@ const InputContainer = styled.div`
   width: 500px;
   height: 45px;
   margin: 50px auto;
-  text-align: center;
   ${flexCenter};
   background-color: ${theme.white};
 
@@ -102,7 +100,7 @@ const InputContainer = styled.div`
     width: 500px;
     height: 45px;
     border: none;
-    font-size: 20px;
+    font-size: 17px;
 
     &:focus {
       outline: none;
@@ -125,29 +123,31 @@ const LogoContainer = styled.div`
   width: 600px;
   height: 45px;
   margin: 50px auto 200px auto;
-  text-align: center;
   ${flexCenter};
 
   a img {
     width: 180px;
-    height: 100px;
+    height: 110px;
     margin: 20px;
   }
 `;
 
 const ColumnsContainer = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100%;
-  background-color: ${theme.darknavy};
-  position: relative;
-  ${flexCenter};
+  top: 500px;
+  position: absolute;
 
   .columns-absolute {
-    top: -15%;
+    width: 90%;
     margin: 0 auto;
-    position: absolute;
     ${flexCenter};
   }
+`;
+
+const ColumnBackground = styled.div`
+  height: 700px;
+  background-color: ${theme.darknavy};
 `;
 
 export default Home;

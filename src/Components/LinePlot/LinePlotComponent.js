@@ -5,19 +5,18 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { chartDataAPI } from "../../config";
 import { options } from "./MobilityChartOptions";
+import { flexCenter } from "../../Styles/Theme";
 
 function LinePlotComponent() {
   const [optionData, setOptionData] = useState(options);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${chartDataAPI}/mobility`);
+      const response = await axios.get(
+        `${chartDataAPI}/mobility?place=Grocery and Pharmacy`
+      );
       let tmpOption = { ...optionData, series: response.data.series };
       setOptionData(tmpOption);
     } catch (e) {
@@ -26,8 +25,18 @@ function LinePlotComponent() {
     setLoading(false);
   };
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   if (loading) return <div>로딩중...</div>;
-  if (error) return <div>에러가 발생했습니다...</div>;
+  if (error)
+    return (
+      <Error>
+        <img alt="error" src="/images/error.png"></img>에러가 발생했습니다...
+      </Error>
+    );
+  console.log(options);
   if (!optionData) return null;
 
   return (
@@ -36,31 +45,32 @@ function LinePlotComponent() {
         <div className="topContainer">
           <h1>MOBILITY</h1>
           <p>
-            Mobility data helps policymakers, local government and executives make informed
-            decisions on COVID-19 restrictions and reopening.
+            Mobility data helps policymakers, local government and executives
+            make informed decisions on COVID-19 restrictions and reopening.
           </p>
         </div>
       </Title>
       <Container>
         <LeftContainer>
-          <h2>Workplace Mobility</h2>
+          <h2>Community Mobility</h2>
           <LeftCategory>
-            <span>REGION CATEGORY</span>
+            <span>PLACE CATEGORY</span>
             <select className="PlaceCategory">
-              <option value="Northeastern">Northeastern</option>
-              <option value="Western">Western</option>
-              <option value="Midwest">Midwest</option>
-              <option value=" South"> South</option>
+              <option value="Northeastern">Grocery and Pharmacy</option>
+              <option value="Western">Parks</option>
+              <option value="Midwest">Retail and Recreation</option>
+              <option value=" South"> Transit Stations</option>
+              <option value=" South"> Workplaces</option>
             </select>
           </LeftCategory>
           <p>
-            This chart shows how visits and length of stay to Workplace have changed over time
-            compared to a baseline.
+            This chart shows how visits and length of stay to Workplace have
+            changed over time compared to a baseline.
           </p>
           <p>
-            Baselines are calculated using aggregated and anonymized data to show popular times for
-            places in Google Maps. Changes for each day are compared to a baseline value for that
-            day of the week.
+            Baselines are calculated using aggregated and anonymized data to
+            show popular times for places in Google Maps. Changes for each day
+            are compared to a baseline value for that day of the week.
           </p>
         </LeftContainer>
         <HighchartsReact highcharts={Highcharts} options={optionData} />
@@ -137,5 +147,12 @@ const LeftCategory = styled.div`
     color: rgba(45, 45, 45, 0.5);
     border: 1px solid rgba(45, 45, 45, 0.5);
     outline: none;
+  }
+`;
+
+const Error = styled.div`
+  ${flexCenter}
+  img {
+    width: 90px;
   }
 `;

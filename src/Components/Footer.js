@@ -38,7 +38,7 @@ function Footer({ history }) {
               <b>Receive updates on news, datasets, and features?</b>
             </div>
             <EmailInputContainer>
-              <img src="/images/email.png" />
+              <img alt="emailIcon" src="/images/email.png" />
               <input placeholder="your email address" />
               <div className="btn-login-container">
                 <div
@@ -75,7 +75,7 @@ function Footer({ history }) {
   );
 }
 
-const FooterStyle = styled.div`
+const FooterStyle = styled.footer`
   width: 100%;
   height: 340px;
   left: 0;
@@ -130,6 +130,7 @@ const EmailContainer = styled.div`
 
   .email-text {
     margin-bottom: 10px;
+
     b {
       font-size: 20px;
       color: white;
@@ -190,26 +191,24 @@ const EmailInputContainer = styled.div`
         text-align: center;
         color: white;
       }
-    }
 
     @keyframes moveSpan {
       100% {
-        transform:translateX(10px);  
+        transform: translateX(10px);  
       }
     }
+   }
 `;
 
 const LogoContainer = styled.div`
+  width: 530px;
   height: 90px;
-  width: 550px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
 
   a {
     img {
       width: 120px;
-      height: 26px;
     }
   }
 `;

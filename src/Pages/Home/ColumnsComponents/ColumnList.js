@@ -36,12 +36,12 @@ const ColumnList = ({ title, list, id }) => {
 };
 
 const ColumnListContainer = styled.div`
-  width: 260px;
+  width: 230px;
   margin: 0 auto;
 `;
 
 const TitleContainer = styled.div`
-  width: 260px;
+  width: 230px;
   height: 50px;
   margin-bottom: 5px;
   ${flexCenter};
@@ -50,6 +50,7 @@ const TitleContainer = styled.div`
     color: white;
     margin: 0px 10px;
     font-size: 25px;
+    ${flexCenter};
 
     img {
       width: 35px;
