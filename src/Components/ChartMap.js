@@ -13,7 +13,7 @@ const ChartMap = () => {
 
   useEffect(() => {
     axios
-      .get("http://10.58.4.3:8080/hospital/beds", {
+      .get("http://10.58.0.233:8000/bed", {
         timeout: 3000,
       })
       .then((res) => {

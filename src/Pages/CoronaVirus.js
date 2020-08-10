@@ -5,7 +5,8 @@ import CoronaMain from "../Components/CoronaMain";
 import DataTable from "../Components/DataTable";
 import Daily from "../Components/Daily";
 import LinePlotComponent from "../Components/LinePlot/LinePlotComponent";
-import ChartMap from "../Components/ChartMap/ChartMap";
+import MapComponents from "../Components/ChartMap/MapComponents";
+import PageTop from "../Components/PageTop";
 import theme from "../Styles/Theme";
 import { dataTableAPI } from "../config";
 
@@ -35,19 +36,22 @@ function CoronaVirus() {
   if (!data) return null;
 
   return (
-    <CoronaContainer>
-      <CoronaMain />
-      {data.length && (
-        <DataTable
-          selectedState={selectedState}
-          setSelectedState={setSelectedState}
-          data={data}
-        />
-      )}
-      <Daily />
-      <LinePlotComponent />
-      <ChartMap />
-    </CoronaContainer>
+    <>
+      <PageTop />
+      <CoronaContainer>
+        <CoronaMain />
+        {data.length && (
+          <DataTable
+            selectedState={selectedState}
+            setSelectedState={setSelectedState}
+            data={data}
+          />
+        )}
+        <Daily />
+        <LinePlotComponent />
+        <MapComponents />
+      </CoronaContainer>
+    </>
   );
 }
 

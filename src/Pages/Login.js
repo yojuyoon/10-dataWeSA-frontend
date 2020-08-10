@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { KakaoLogin } from "../Components/SocialLogin/KakaoLogin";
 import Google from "../Components/SocialLogin/Google";
+import PageTop from "../Components/PageTop";
 import styled from "styled-components";
 import theme from "../Styles/Theme";
 
@@ -9,45 +10,48 @@ export default function Login() {
   let history = useHistory();
 
   return (
-    <LoginContainer>
-      <div className="backgroundColor">
-        <HelloBox>
-          <div className="welcome">Welcome!</div>
-          <div className="hello">Hello, DATA WeSA</div>
-          <div className="account">Don't have an account?</div>
-          <div className="register">
-            Register to access all the features of our service.
-          </div>
-          <div className="manage">
-            Manage your business in one place. It's free!
-          </div>
-        </HelloBox>
-        <LoginBox>
-          <div className="loginText">LOGIN</div>
-          <InputBox>
-            <div className="inputInfo">Email</div>
-            <input type="text" />
-            <div className="inputInfo">Password</div>
-            <input type="password" />
-          </InputBox>
-          <CheckBox>
-            <input type="checkbox" />
-            Stay Signed in
-          </CheckBox>
-          <ButtonBox>
-            <Google />
-            <button className="facebook">
-              <img alt="페이스북" src="/images/facebook.png" />
-              <span>Login with Facebook</span>
-            </button>
-            <button className="kakao" onClick={() => KakaoLogin(history)}>
-              <img alt="카카오" src="/images/kakao.png" />
-              <span>Login with Kakao</span>
-            </button>
-          </ButtonBox>
-        </LoginBox>
-      </div>
-    </LoginContainer>
+    <>
+      <PageTop />
+      <LoginContainer>
+        <div className="backgroundColor">
+          <HelloBox>
+            <div className="welcome">Welcome!</div>
+            <div className="hello">Hello, DATA WeSA</div>
+            <div className="account">Don't have an account?</div>
+            <div className="register">
+              Register to access all the features of our service.
+            </div>
+            <div className="manage">
+              Manage your business in one place. It's free!
+            </div>
+          </HelloBox>
+          <LoginBox>
+            <div className="loginText">LOGIN</div>
+            <InputBox>
+              <div className="inputInfo">Email</div>
+              <input type="text" />
+              <div className="inputInfo">Password</div>
+              <input type="password" />
+            </InputBox>
+            <CheckBox>
+              <input type="checkbox" />
+              Stay Signed in
+            </CheckBox>
+            <ButtonBox>
+              <Google history={history} />
+              <button className="facebook">
+                <img alt="페이스북" src="/images/facebook.png" />
+                <span>Login with Facebook</span>
+              </button>
+              <button className="kakao" onClick={() => KakaoLogin(history)}>
+                <img alt="카카오" src="/images/kakao.png" />
+                <span>Login with Kakao</span>
+              </button>
+            </ButtonBox>
+          </LoginBox>
+        </div>
+      </LoginContainer>
+    </>
   );
 }
 

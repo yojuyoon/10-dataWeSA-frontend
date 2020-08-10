@@ -16,7 +16,7 @@ export const KakaoLogin = (history) => {
         .then((res) => {
           localStorage.setItem("token", res.data.token);
           alert("로그인 되었습니다.");
-          history.push("/");
+          history.push("/home");
         });
     },
     fail: (error) => {

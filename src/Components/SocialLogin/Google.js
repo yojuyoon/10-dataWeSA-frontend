@@ -4,7 +4,7 @@ import theme from "../../Styles/Theme";
 import axios from "axios";
 import { googleLoginAPI } from "../../config";
 
-function Google() {
+function Google(props) {
   const googleLoginBtn = useRef(null);
   const [token, setToken] = useState("");
 
@@ -67,6 +67,7 @@ function Google() {
       .then((res) => {
         sessionStorage.setItem("token", res.data.token);
         alert("로그인 되었습니다");
+        props.history.push("/home");
       })
       .catch((error) => alert("Error:", error));
   };
