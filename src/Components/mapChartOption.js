@@ -74,13 +74,11 @@ const mapOptions = {
       tooltip: {
         headerFormat: "",
         pointFormatter: function () {
-          return (
-            `<h1>${this.id}</h1>` +
-            `<hr/>` +
-            `<b>year :                     ${this.years}</b>` +
-            `<hr/>` +
-            `<b>Beds Per Resident :        ${this.value}</b>`
-          );
+          return `<h1>${this.id}</h1>
+            <hr/>
+            <b>year :                     ${this.years}</b>
+            <hr/>
+            <b>Beds Per Resident :        ${this.value}</b>`;
         },
       },
     },

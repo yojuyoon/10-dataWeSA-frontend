@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import DailyChart from "./DailyChart";
-import theme from "../Styles/Theme";
+import theme from "../../Styles/Theme";
 
-function Daily() {
+function Daily(props) {
   return (
     <DailyWrapper>
       <DailyContainer>
@@ -19,14 +19,13 @@ function Daily() {
           <div className="subTitle">
             <SpanSubTitle>INDICATOR</SpanSubTitle>
             <div className="wrapper">
-              <Select>
-                <option>Daily New Cases</option>
-                <option>Confirmed Cases</option>
-                <option>Deaths</option>
-                <option>Hospitalizations</option>
-                <option>Tests</option>
-                <option>% Positive Tests</option>
-              </Select>
+              <select onChange={(e) => props.handleCategory(e)}>
+                {props.categories.map((list, key) => (
+                  <option value={key} selected={props.selectedCategory === list && "selected"}>
+                    {list}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           <div className="checkBoxes">
@@ -67,7 +66,7 @@ function Daily() {
             </SpanUnderline>
           </Content>
         </DailyInfo>
-        <DailyChart />
+        <DailyChart option={props.option} />
       </DailyContainer>
     </DailyWrapper>
   );
@@ -107,6 +106,12 @@ const DailyInfo = styled.div`
     .wrapper {
       width: 70%;
       height: 100%;
+
+      select {
+        width: 100%;
+        height: 100%;
+        border: 1px solid grey;
+      }
     }
   }
 
@@ -131,12 +136,6 @@ const Content = styled.div`
 
 const Button = styled.button`
   width: 50%;
-  height: 100%;
-  border: 1px solid grey;
-`;
-
-const Select = styled.select`
-  width: 100%;
   height: 100%;
   border: 1px solid grey;
 `;

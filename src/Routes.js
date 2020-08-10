@@ -5,6 +5,7 @@ import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login";
+import Industries from "./Pages/Industries";
 
 class Routes extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class Routes extends React.Component {
           <Route exact path="/" component={CoronaVirus} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/Industries" component={Industries} />
         </Switch>
         <Footer />
       </Router>
