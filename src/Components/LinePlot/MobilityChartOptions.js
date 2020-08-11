@@ -2,7 +2,7 @@ export const options = {
   chart: {
     type: "spline",
     width: 1000,
-    height: 450,
+    height: 550,
     backgroundColor: "#F6F6F6",
   },
 
@@ -47,6 +47,9 @@ export const options = {
           }
           return "";
         },
+      },
+      animation: {
+        duration: 1500,
       },
     },
   },
