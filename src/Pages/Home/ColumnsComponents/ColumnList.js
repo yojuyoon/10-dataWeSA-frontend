@@ -29,7 +29,7 @@ const ColumnList = ({ title, list, id }) => {
       </TitleContainer>
 
       {list.map((column, index) => (
-        <Column key={index} column={column} />
+        <Column key={index} name={column.name} src={column.src} />
       ))}
     </ColumnListContainer>
   );

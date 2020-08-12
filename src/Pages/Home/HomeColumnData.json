@@ -2,55 +2,157 @@
   {
     "id": 0,
     "title": "Viz Builder",
-    "list": ["DEPARTMENT", "OPIOID", "ADMISSIONS", "WORKERS", "FOREIGN"]
+    "list": [
+      {
+        "name": "DEPARTMENT",
+        "src": "https://datausa.io/visualize?enlarged=c-treemap-Z1MxM8L-1pz0Cl-14&groups=0-Z1MxM8L&groups=1-1pz0Cl-14&measure=1e64mv"
+      },
+      {
+        "name": "OPIOID",
+        "src": "https://datausa.io/visualize?groups=0-QuaqK&measure=2sUCF4"
+      },
+      {
+        "name": "ADMISSIONS",
+        "src": "https://datausa.io/visualize?enlarged=c-lineplot-1CdfJW&groups=0-1CdfJW&measure=Z1GSog1"
+      },
+      {
+        "name": "WORKERS",
+        "src": "https://datausa.io/visualize?filters=0-Z2nLcvC-5-5&filters=1-1qWfo-4-2000&groups=0-z9TnC&groups=1-1mjmRl-2121&measure=1qWfo"
+      },
+      {
+        "name": "FOREIGN",
+        "src": "https://datausa.io/visualize?groups=0-TBhjH&measure=64auG"
+      }
+    ]
   },
   {
     "id": 1,
     "title": "Cities & Places",
     "list": [
-      "MINNEAPOLIS",
-      "PHILADELPHIA",
-      "LOS ANGELES",
-      "LOUISVILLE",
-      "DALLS"
+      {
+        "name": "MINNEAPOLIS",
+        "src": "https://datausa.io/profile/geo/minneapolis-mn"
+      },
+      {
+        "name": "PHILADELPHIA",
+        "src": "https://datausa.io/profile/geo/philadelphia-pa"
+      },
+      {
+        "name": "LOS ANGELES",
+        "src": "https://datausa.io/profile/geo/los-angeles-ca"
+      },
+      {
+        "name": "LOUISVILLE",
+        "src": "https://datausa.io/profile/geo/louisville-jefferson-county-ky-in-metro-area"
+      },
+      {
+        "name": "DALLS",
+        "src": "https://datausa.io/profile/geo/dallas-fort-worth-arlington-tx-metro-area"
+      }
     ]
   },
   {
     "id": 2,
     "title": "Industires",
     "list": [
-      "RESTURANT",
-      "MILITARY",
-      "AIR TRANSPORT",
-      "CHILD DAY",
-      "SPECTOR SPORTS"
+      {
+        "name": "RESTURANT",
+        "src": "https://datausa.io/profile/naics/restaurants-food-services"
+      },
+      {
+        "name": "MILITARY",
+        "src": "https://datausa.io/profile/naics/military-reserves-or-national-guard"
+      },
+      {
+        "name": "AIR TRANSPORT",
+        "src": "https://datausa.io/profile/naics/air-transportation"
+      },
+      {
+        "name": "CHILD DAY",
+        "src": "https://datausa.io/profile/naics/child-day-care-services"
+      },
+      {
+        "name": "SPECTOR SPORTS",
+        "src": "https://datausa.io/profile/naics/spectator-sports"
+      }
     ]
   },
   {
     "id": 3,
     "title": "Jobs",
     "list": [
-      "POLICE OFFICERS",
-      "SCHOOL TEACHER",
-      "RETAIL SALESPERSONS",
-      "CHILDCARE",
-      "EMERGENCY"
+      {
+        "name": "POLICE OFFICERS",
+        "src": "https://datausa.io/profile/soc/police-officers"
+      },
+      {
+        "name": "SCHOOL TEACHER",
+        "src": "https://datausa.io/profile/soc/elementary-middle-school-teachers"
+      },
+      {
+        "name": "RETAIL SALESPERSONS",
+        "src": "https://datausa.io/profile/soc/retail-salespersons"
+      },
+      {
+        "name": "CHILDCARE",
+        "src": "https://datausa.io/profile/soc/retail-salespersons"
+      },
+      {
+        "name": "EMERGENCY",
+        "src": "https://datausa.io/profile/soc/emergency-medical-technicians-paramedics"
+      }
     ]
   },
   {
     "id": 4,
     "title": "Universities",
     "list": [
-      "MASSACHURSETTS",
-      "MARYLAND-COLLEGE",
-      "DAME",
-      "CHICAGO",
-      "NORTHEATERN"
+      {
+        "name": "MASSACHURSETTS",
+        "src": "https://datausa.io/profile/university/massachusetts-institute-of-technology"
+      },
+      {
+        "name": "MARYLAND-COLLEGE",
+        "src": "https://datausa.io/profile/university/university-of-maryland-college-park"
+      },
+      {
+        "name": "DAME",
+        "src": "https://datausa.io/profile/university/university-of-notre-dame"
+      },
+      {
+        "name": "CHICAGO",
+        "src": "https://datausa.io/profile/university/university-of-chicago"
+      },
+      {
+        "name": "NORTHEATERN",
+        "src": "https://datausa.io/profile/university/northeastern-university"
+      }
     ]
   },
   {
     "id": 5,
     "title": "CART",
-    "list": ["FEDERAL AGENCY", "AVERAGE", "SMOKING", "POPULATION", "MEDIAN"]
+    "list": [
+      {
+        "name": "FEDERAL AGENCY",
+        "src": "https://datausa.io/profile/cip/corrections"
+      },
+      {
+        "name": "AVERAGE",
+        "src": "https://datausa.io/profile/cip/criminal-justice-police-science"
+      },
+      {
+        "name": "SMOKING",
+        "src": "https://datausa.io/profile/cip/project-management"
+      },
+      {
+        "name": "POPULATION",
+        "src": "https://datausa.io/visualize?groups=0-TBhjH&measure=64auG"
+      },
+      {
+        "name": "MEDIAN",
+        "src": "https://datausa.io/profile/cip/emergency-room-nursing"
+      }
+    ]
   }
 ]
