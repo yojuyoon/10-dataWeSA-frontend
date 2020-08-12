@@ -48,19 +48,23 @@ function Daily() {
             </div>
           </div>
           <Content>
-            Because of the exponential nature of early epidemic spreading, it is important to track
-            not only the total number of COVID-19 cases, but their growth.
+            Because of the exponential nature of early epidemic spreading, it is
+            important to track not only the total number of COVID-19 cases, but
+            their growth.
           </Content>
           <Content>
-            This chart presents the number of new cases reported daily by each U.S. state.
+            This chart presents the number of new cases reported daily by each
+            U.S. state.
           </Content>
           <Content type="small">
-            For more information about the difference between linear and logarithmic scale,{" "}
-            <SpanUnderline>click here.</SpanUnderline>
+            For more information about the difference between linear and
+            logarithmic scale, <SpanUnderline>click here.</SpanUnderline>
           </Content>
           <Content type="small">
             Data from{" "}
-            <SpanUnderline>the COVID Tracking Project Coronavirus numbers by state.</SpanUnderline>
+            <SpanUnderline>
+              the COVID Tracking Project Coronavirus numbers by state.
+            </SpanUnderline>
           </Content>
         </DailyInfo>
         <DailyChart />
@@ -73,7 +77,7 @@ export default Daily;
 
 const DailyWrapper = styled.div`
   margin-top: 5%;
-  background-color: ${(props) => props.theme.midgrey};
+  background-color: ${theme.midgrey};
 `;
 
 const DailyContainer = styled.div`
@@ -88,10 +92,11 @@ const DailyInfo = styled.div`
   height: 30%;
   margin-right: 2%;
   .title {
-    font-family: ${(props) => props.theme.fontTitle};
+    font-family: ${theme.fontTitle};
     font-size: 30px;
     margin-bottom: 10px;
   }
+
   .subTitle {
     display: flex;
     justify-content: space-between;
@@ -104,11 +109,12 @@ const DailyInfo = styled.div`
       height: 100%;
     }
   }
+
   .checkBoxes {
     width: 100%;
     font-size: 12px;
     font-weight: bold;
-    color: ${(props) => props.theme.orange};
+    color: ${theme.orange};
 
     div {
       margin: 0 0 2% 30%;
@@ -138,11 +144,11 @@ const Select = styled.select`
 const SpanSubTitle = styled.span`
   font-size: 13px;
   font-weight: bold;
-  font-family: ${(props) => props.theme.fontContent};
+  font-family: ${theme.fontContent};
 `;
 
 const SpanUnderline = styled.span`
   text-decoration: underline;
-  color: ${(props) => props.theme.black};
+  color: ${theme.black};
   cursor: pointer;
 `;

@@ -32,6 +32,7 @@ function Nav() {
 
   const refreshSideBar = (props) => {
     setsideMenu(null);
+    document.body.style.overflow = "unset";
   };
 
   return (
