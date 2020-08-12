@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import theme, { flexCenter } from "../../../Styles/Theme";
 
-const Column = ({ column }) => {
+const Column = ({ name, src }) => {
   return (
-    <ColumnContainer column={column}>
-      <div className="bg">{column}</div>
+    <ColumnContainer name={name}>
+      <div className="bg">
+        <a href={src}>{name}</a>
+      </div>
     </ColumnContainer>
   );
 };
@@ -16,7 +18,7 @@ const ColumnContainer = styled.div`
   font-size: 18px;
   margin: 15px auto;
   text-align: center;
-  background-image: url("images/Home/Column/${(props) => props.column}.jpg");
+  background-image: url("images/Home/Column/${(props) => props.name}.jpg");
   background-size: 100% 100%;
   border: 1px solid white;
   cursor: pointer;
@@ -34,7 +36,10 @@ const ColumnContainer = styled.div`
     background-position: 50% 50%;
     color: ${theme.white};
 
-
+    a { 
+      text-decoration:none ;
+      color: ${theme.white};
+    } 
   }
 
   @keyframes showBig {
