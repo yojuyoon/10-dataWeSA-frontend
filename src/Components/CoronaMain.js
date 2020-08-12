@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
-import { flexCenter } from "../Styles/Theme";
 import { StatDataAPI } from "../config";
+import theme, { flexCenter } from "../Styles/Theme";
 
-function CoronaMain() {
+function CoronaMain({ handleScrollIntoView }) {
   const [statData, setStatData] = useState([]);
 
   useEffect(() => {
@@ -61,26 +61,22 @@ function CoronaMain() {
         </div>
       </TextContainer>
       <PageCategoryContainer>
-        <Link to="/">
+        <SectionIcon onClick={() => handleScrollIntoView(0)}>
           <img alt="cases" src="/images/cases.svg" />
           <span>Confirmed Cases by State</span>
-        </Link>
-        <Link to="/">
+        </SectionIcon>
+        <SectionIcon onClick={() => handleScrollIntoView(1)}>
           <img alt="mobility" src="/images/mobility.svg" />
           <span>Mobility</span>
-        </Link>
-        <Link to="/">
-          <img alt="economy" src="/images/economy.svg" />
-          <span>Economic Impact</span>
-        </Link>
-        <Link to="/">
+        </SectionIcon>
+        <SectionIcon onClick={() => handleScrollIntoView(2)}>
           <img alt="risks" src="/images/risks.svg" />
           <span>Risks and Readiness</span>
-        </Link>
-        <Link to="/">
+        </SectionIcon>
+        <SectionIcon onClick={() => handleScrollIntoView(3)}>
           <img alt="faq" src="/images/faqs.svg" />
           <span>FAQs</span>
-        </Link>
+        </SectionIcon>
       </PageCategoryContainer>
     </CoronaMainContainer>
   );
@@ -89,11 +85,11 @@ function CoronaMain() {
 export default CoronaMain;
 
 const CoronaMainContainer = styled.div`
-  background-color: ${(props) => props.theme.navy};
-  color: ${(props) => props.theme.white};
+  padding-top: 100px;
   ${flexCenter};
   flex-direction: column;
-  padding-top: 60px;
+  background-color: ${theme.navy};
+  color: ${theme.white};
 `;
 
 const TitleContainer = styled.div`
@@ -101,12 +97,18 @@ const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  font-family: ${(props) => props.theme.fontTitle};
+  font-family: ${theme.fontTitle};
   font-size: 60px;
 
+  h1 {
+    letter-spacing: 2px;
+  }
+
   h2 {
-    color: ${(props) => props.theme.orange};
+    color: ${theme.orange};
     font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 `;
 
@@ -148,7 +150,7 @@ const RateColumn = styled.div`
   .value {
     margin: 10px;
     font-size: 35px;
-    font-family: ${(props) => props.theme.fontNumber};
+    font-family: ${theme.fontNumber};
   }
 
   .subTitle {
@@ -164,7 +166,7 @@ const TextContainer = styled.div`
     width: 350px;
     margin: 0 30px;
     line-height: 20px;
-    font-family: ${(props) => props.theme.fontContent};
+    font-family: ${theme.fontContent};
   }
 `;
 
@@ -172,16 +174,15 @@ const PageCategoryContainer = styled.div`
   margin: 30px 0;
   display: flex;
   justify-content: center;
+`;
 
-  a {
-    margin: 0 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: ${(props) => props.theme.white};
-  }
+const SectionIcon = styled.div`
+  margin: 0 30px;
+  ${flexCenter};
+  flex-direction: column;
+  text-decoration: none;
+  color: ${theme.white};
+  cursor: pointer;
 
   img {
     width: 30px;
@@ -192,6 +193,6 @@ const PageCategoryContainer = styled.div`
     font-size: 13px;
     text-align: center;
     line-height: 20px;
-    font-family: ${(props) => props.theme.fontContent};
+    font-family: ${theme.fontContent};
   }
 `;

@@ -3,23 +3,17 @@ import axios from "axios";
 import styled from "styled-components";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { chartDataAPI } from "../../config";
-import { options } from "./MobilityChartOptions";
 import Loading from "../../Components/Common/Loading";
 import Error from "../../Components/Common/Error";
+import { chartDataAPI } from "../../config";
+import { options } from "./MobilityChartOptions";
+import { categories } from "./MobilityCategories";
 import theme from "../../Styles/Theme";
 
 function LinePlotComponent() {
   const [optionData, setOptionData] = useState(options);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const categories = [
-    "Grocery and Pharmacy",
-    "Parks",
-    "Retail and Recreation",
-    "Transit Stations",
-    "Workplaces",
-  ];
   const [selectedCategory, setselectedCategory] = useState(
     "Grocery and Pharmacy"
   );
@@ -30,7 +24,7 @@ function LinePlotComponent() {
 
   const fetchData = async () => {
     try {
-      setLoading(!loading);
+      setLoading(true);
       const response = await axios.get(
         `${chartDataAPI}/mobility?place=${selectedCategory}`
       );
@@ -39,7 +33,7 @@ function LinePlotComponent() {
     } catch (e) {
       setError(e);
     } finally {
-      setLoading(loading);
+      setLoading(false);
     }
   };
 
@@ -106,6 +100,7 @@ function LinePlotComponent() {
 export default LinePlotComponent;
 
 const Wrapper = styled.div`
+  padding: 25px 0;
   background-color: ${theme.lightgrey};
 `;
 
@@ -117,7 +112,7 @@ const Title = styled.div`
   color: ${theme.fontColor};
 
   h1 {
-    margin: 20px 0;
+    margin: 10px 0;
     text-align: center;
     font-family: ${theme.fontTitle};
     font-size: 45px;
@@ -138,9 +133,9 @@ const Container = styled.main`
 
   p {
     margin-top: 20px;
-    line-height: 20px;
     font-family: ${theme.fontContent};
     font-size: 15px;
+    line-height: 20px;
     color: ${theme.fontColor};
   }
 `;

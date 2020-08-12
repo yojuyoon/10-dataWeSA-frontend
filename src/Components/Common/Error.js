@@ -14,17 +14,18 @@ const Error = () => {
 };
 
 const ErrorContainer = styled.div`
-  width: 100%;
+  width: 400px;
   height: 50vh;
+  margin: 0 auto;
   ${flexCenter};
-  font-size: 55px;
   flex-direction: column;
+  font-size: 55px;
   color: ${theme.orange};
 
   span {
     margin-top: 30px;
-    color: ${theme.navy};
     font-size: 24px;
+    color: ${theme.navy};
     font-family: ${theme.fontContent};
   }
 `;
