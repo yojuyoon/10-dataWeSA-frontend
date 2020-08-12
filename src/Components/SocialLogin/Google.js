@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import theme from "../../Styles/Theme";
 import axios from "axios";
@@ -7,6 +8,7 @@ import { googleLoginAPI } from "../../config";
 function Google() {
   const googleLoginBtn = useRef(null);
   const [token, setToken] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     googleSDK();
@@ -58,6 +60,7 @@ function Google() {
       .then((res) => {
         sessionStorage.setItem("token", res.data.token);
         alert("로그인 되었습니다");
+        history.push("/home");
       })
       .catch((error) => alert("Error:", error));
   };

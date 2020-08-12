@@ -6,7 +6,7 @@ import styled from "styled-components";
 import theme from "../Styles/Theme";
 
 export default function Login() {
-  let history = useHistory();
+  const history = useHistory();
 
   return (
     <LoginContainer>
@@ -36,10 +36,6 @@ export default function Login() {
           </CheckBox>
           <ButtonBox>
             <Google />
-            <button className="facebook">
-              <img alt="페이스북" src="/images/facebook.png" />
-              <span>Login with Facebook</span>
-            </button>
             <button className="kakao" onClick={() => KakaoLogin(history)}>
               <img alt="카카오" src="/images/kakao.png" />
               <span>Login with Kakao</span>
@@ -53,7 +49,6 @@ export default function Login() {
 
 const LoginContainer = styled.div`
   width: 100%;
-  height: 100%;
   background-image: url("/images/usa.jpg");
   background-size: 110%;
   .backgroundColor {
@@ -144,7 +139,7 @@ const InputBox = styled.div`
 `;
 
 const CheckBox = styled.div`
-  margin-bottom: 50%;
+  margin-bottom: 60px;
   padding-left: 4%;
   color: ${theme.white};
 
@@ -155,8 +150,7 @@ const CheckBox = styled.div`
 
 const ButtonBox = styled.div`
   width: 90%;
-  margin-top: 15%;
-  margin: 10% auto 0;
+  margin: 0 auto;
   button {
     width: 100%;
     height: 50px;

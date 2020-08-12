@@ -7,7 +7,7 @@ const theme = {
   lightgrey: "#F6F6F6",
   midgrey: "#EFEFEF",
   grey: "#E9E9E9",
-  darknavy: "#141B2E",
+  darknavy: "#1b191d",
   fontColor: "#2D2D2D",
   fontContent: "Palanquin, sans-serif",
   fontTitle: "Pathway Gothic One, sans-serif",

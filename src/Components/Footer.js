@@ -74,7 +74,7 @@ const FooterStyle = styled.footer`
   bottom: 0;
   display: flex;
   justify-content: space-between;
-  background-color: ${theme.darknavy};
+  background-color: ${theme.navy};
 `;
 
 const FooterLeftStyle = styled.div`
@@ -148,7 +148,7 @@ const EmailInputContainer = styled.div`
       width: 380px;
       border: none;
       color: white;
-      background-color: ${theme.darknavy};
+      background-color: ${theme.navy};
 
       &:focus {
         outline: none;
@@ -162,7 +162,7 @@ const EmailInputContainer = styled.div`
       justify-content: center;
       text-align: center;
       color: white;
-      background-color: ${theme.darknavy};
+      background-color: ${theme.navy};
       font-weight: bold;
       cursor: pointer;
 

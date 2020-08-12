@@ -2,14 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
-import { StatDataAPI } from "../config";
 import theme, { flexCenter } from "../Styles/Theme";
+import { totalAPI } from "../config";
 
 function CoronaMain({ handleScrollIntoView }) {
   const [statData, setStatData] = useState([]);
+  const today = new Date();
+  const date = {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  };
 
   useEffect(() => {
-    axios.get(`${StatDataAPI}/data/coronaMainData.json`).then((res) => {
+    axios.get(`${totalAPI}/total`).then((res) => {
       setStatData(res.data.stat);
     });
   }, []);
@@ -18,7 +24,7 @@ function CoronaMain({ handleScrollIntoView }) {
     <CoronaMainContainer>
       <TitleContainer>
         <h1>COVID-19 IN THE UNITED STATES</h1>
-        <h2>Latest Data from Monday, August 3rd</h2>
+        <h2>Latest Data from {today.toLocaleDateString("en-US", date)}</h2>
       </TitleContainer>
       <SponsorContainter>
         <Link to="https://www2.deloitte.com/us/en.html">
@@ -62,19 +68,19 @@ function CoronaMain({ handleScrollIntoView }) {
       </TextContainer>
       <PageCategoryContainer>
         <SectionIcon onClick={() => handleScrollIntoView(0)}>
-          <img alt="cases" src="/images/cases.svg" />
+          <img alt="cases" src="/images/svg/cases.svg" />
           <span>Confirmed Cases by State</span>
         </SectionIcon>
         <SectionIcon onClick={() => handleScrollIntoView(1)}>
-          <img alt="mobility" src="/images/mobility.svg" />
+          <img alt="mobility" src="/images/svg/mobility.svg" />
           <span>Mobility</span>
         </SectionIcon>
         <SectionIcon onClick={() => handleScrollIntoView(2)}>
-          <img alt="risks" src="/images/risks.svg" />
+          <img alt="risks" src="/images/svg/risks.svg" />
           <span>Risks and Readiness</span>
         </SectionIcon>
         <SectionIcon onClick={() => handleScrollIntoView(3)}>
-          <img alt="faq" src="/images/faqs.svg" />
+          <img alt="faq" src="/images/svg/faqs.svg" />
           <span>FAQs</span>
         </SectionIcon>
       </PageCategoryContainer>

@@ -132,14 +132,16 @@ function CoronaVirus() {
   return (
     <CoronaContainer>
       <CoronaMain handleScrollIntoView={handleScrollIntoView} />
-      {data && (
-        <DataTable
-          selected={selected}
-          setSelected={setSelected}
-          data={data}
-          handleClick={handleClick}
-        />
-      )}
+      <div ref={(el) => (componentRefs.current[0] = el)}>
+        {data && (
+          <DataTable
+            selected={selected}
+            setSelected={setSelected}
+            data={data}
+            handleClick={handleClick}
+          />
+        )}
+      </div>
       {dailyResult}
       <div ref={(el) => (componentRefs.current[1] = el)}>
         <LinePlotComponent endPoint={endPoint} />

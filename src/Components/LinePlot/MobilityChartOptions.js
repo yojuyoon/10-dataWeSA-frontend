@@ -14,6 +14,14 @@ export const options = {
     title: "",
   },
 
+  xAxis: {
+    labels: {
+      formatter: function () {
+        return "July" + (this.value + 1).toString();
+      },
+    },
+  },
+
   legend: {
     enabled: false,
   },

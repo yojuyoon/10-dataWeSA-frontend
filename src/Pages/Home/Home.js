@@ -1,16 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import { IoIosSearch } from "react-icons/io";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import theme, { flexCenter } from "../../Styles/Theme";
 import ColumnList from "./ColumnsComponents/ColumnList";
-import HomeColumnData from "./HomeColumnData.json";
 
 const Home = () => {
   return (
     <>
       <HomeContainer>
         <BackGround>
-          <img alt="logo-shadow" src="/images/logo-shadow.png" />
+          <img
+            className="backgroundImg"
+            alt="logo-shadow"
+            src="/images/logo-shadow.png"
+          />
           <h1>
             <a href="https://datausa.io/visualize">EXPLORE</a>,
             <a href="https://datausa.io/map">MAP</a>, AND
@@ -20,7 +24,7 @@ const Home = () => {
             U.S. DATA
           </h1>
           <InputContainer>
-            <IoIosSearch size="40" color="#ef6145" />
+            <FontAwesomeIcon className="searchIcon" icon={faSearch} />
             <input placeholder="ex. California, Hostpitals, Graphic Design" />
             <SearchButton>Search</SearchButton>
           </InputContainer>
@@ -31,18 +35,10 @@ const Home = () => {
             <a href="http://www2.deloitte.com/us/en.html">
               <img alt="datawheel" src="/images/datawheel.png" />
             </a>
+            <div className="gradient"></div>
           </LogoContainer>
           <ColumnsContainer>
-            <div className="columns-absolute">
-              {HomeColumnData.map((columnData) => (
-                <ColumnList
-                  key={columnData.id}
-                  title={columnData.title}
-                  list={columnData.list}
-                  id={columnData.id}
-                />
-              ))}
-            </div>
+            <ColumnList />
           </ColumnsContainer>
         </BackGround>
       </HomeContainer>
@@ -52,12 +48,21 @@ const Home = () => {
 };
 
 const HomeContainer = styled.div`
-  background-color: ${theme.darknavy};
-
-  img {
-    height: 115px;
+  .gradient {
+    width: 100%;
+    height: 600px;
+    position: absolute;
+    background-image: linear-gradient(
+      rgba(20, 27, 46, 0),
+      rgba(20, 27, 46, 0),
+      rgb(20, 27, 46)
+    );
+  }
+  height: 600px;
+  border-bottom: 1px solid #ddd;
+  .backgroundImg {
     width: 400px;
-    margin-top: 75px;
+    margin-top: 100px;
   }
 
   h1 {
@@ -83,17 +88,19 @@ const HomeContainer = styled.div`
 `;
 
 const BackGround = styled.div`
+  height: 100%;
   background-size: cover;
   text-align: center;
   background-image: url("https://datausa.io/images/home/bg/rocky.jpg");
-  border-bottom: 1px solid #ddd;
 `;
 
 const InputContainer = styled.div`
   width: 500px;
   height: 45px;
   margin: 50px auto;
-  ${flexCenter};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: ${theme.white};
 
   input {
@@ -106,11 +113,18 @@ const InputContainer = styled.div`
       outline: none;
     }
   }
+
+  .searchIcon {
+    margin-left: 10px;
+    font-size: 25px;
+    color: ${theme.orange};
+  }
 `;
 
 const SearchButton = styled.div`
   width: 100px;
   height: 45px;
+  right: 0;
   ${flexCenter};
   font-weight: bold;
   font-size: 18px;
@@ -121,14 +135,12 @@ const SearchButton = styled.div`
 
 const LogoContainer = styled.div`
   width: 600px;
-  height: 45px;
   margin: 50px auto 200px auto;
   ${flexCenter};
 
   a img {
     width: 180px;
-    height: 110px;
-    margin: 20px;
+    z-index: 999;
   }
 `;
 
@@ -146,8 +158,8 @@ const ColumnsContainer = styled.div`
 `;
 
 const ColumnBackground = styled.div`
-  height: 700px;
-  background-color: ${theme.darknavy};
+  height: 1400px;
+  background-color: ${theme.navy};
 `;
 
 export default Home;

@@ -30,7 +30,9 @@ function SideNav({ sideMenu, hideSideMenu, refreshSideBar }) {
           <li>VIZ BUILDER</li>
           <li>MAPS</li>
           <li>STORIES</li>
-          <li>DATA CART</li>
+          <Link to="/cart" onClick={refreshSideBar}>
+            <li>DATA CART</li>
+          </Link>
           <li>ABOUT</li>
           <li>DATA SOURCES</li>
           <LogoContainer>
