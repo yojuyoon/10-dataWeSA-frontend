@@ -9,12 +9,18 @@ const INITIAL_STATE = [];
 const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TO_CART:
+      let duplicateItem = false;
       state.forEach((el) => {
-        if (el.id === action.payload) {
-          return state;
+        if (el.id === action.payload.id) {
+          duplicateItem = true;
         }
       });
-      return [...state, action.payload];
+
+      if (duplicateItem) {
+        return state;
+      } else {
+        return [...state, action.payload];
+      }
     case REMOVE_FROM_CART:
       return state.filter((item) => item.id !== action.payload);
     case REMOVE_ALL:

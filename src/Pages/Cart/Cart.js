@@ -79,7 +79,11 @@ function Cart({ cart, removeAll }) {
           <Title>
             <h1>Added Data ({cart.length})</h1>
             <span>{cart.length} Dataset</span>
-            <span>{cartList.title}</span>
+            <ul>
+              {cart.map((item) => {
+                return <li>• {item.title}</li>;
+              })}
+            </ul>
           </Title>
           <InserBtn
             onClick={
@@ -138,19 +142,24 @@ const RightContainer = styled.div`
 const Title = styled.div`
   margin: 20px 13px;
   color: ${theme.white};
+  font-family: ${theme.fontNumber};
 
   h1 {
     font-size: 30px;
-    font-family: ${theme.fontNumber};
   }
 
   span {
-    margin-top: 10px;
+    margin: 30px 0;
     display: block;
     line-height: 20px;
     font-size: 15px;
-    font-family: ${theme.fontNumber};
     color: rgba(255, 255, 255, 0.5);
+  }
+
+  ul {
+    width: 300px;
+    line-height: 25px;
+    color: rgba(255, 255, 255, 0.8);
   }
 `;
 
