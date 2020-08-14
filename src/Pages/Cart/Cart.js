@@ -1,13 +1,19 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { connect } from "react-redux";
+import { removeAll } from "../../redux/actions/cartActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserCircle, faMeh, faEdit } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUserCircle,
+  faMeh,
+  faEdit,
+  faTrashAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import Item from "./Item";
 import InserModal from "./InserModal";
 import theme, { flexCenter } from "../../Styles/Theme";
 
-function Cart({ cart }) {
+function Cart({ cart, removeAll }) {
   const [validModal, setValidModal] = useState(false);
 
   const handleOpenModal = () => {
@@ -18,6 +24,10 @@ function Cart({ cart }) {
   const handleCloseModal = () => {
     setValidModal(false);
     document.body.style.overflow = "unset";
+  };
+
+  const handleAllRemove = () => {
+    removeAll();
   };
 
   const cartList =
@@ -58,6 +68,12 @@ function Cart({ cart }) {
           </Profile>
           <h1 className="title">Data Cart</h1>
           <CartList>{cartList}</CartList>
+          {cart.length > 0 && (
+            <ClearBtn onClick={() => handleAllRemove()}>
+              <FontAwesomeIcon className="edit" icon={faTrashAlt} />
+              <p>Clear Cart</p>
+            </ClearBtn>
+          )}
         </DataContainer>
         <RightContainer>
           <Title>
@@ -86,7 +102,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, { removeAll })(Cart);
 
 const CartContainer = styled.div`
   height: 100vw;
@@ -224,4 +240,18 @@ const DataContainer = styled.div`
 
 const CartList = styled.div`
   margin-top: 170px;
+`;
+
+const ClearBtn = styled.div`
+  width: 230px;
+  height: 30px;
+  margin-top: 10px;
+  ${flexCenter};
+  background-color: ${theme.orange};
+  color: ${theme.white};
+  cursor: pointer;
+
+  p {
+    margin-left: 10px;
+  }
 `;

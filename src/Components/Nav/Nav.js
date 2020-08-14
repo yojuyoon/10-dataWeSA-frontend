@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { connect } from "react-redux";
+import { removeFromCart, removeAll } from "../../redux/actions/cartActions";
 import styled from "styled-components";
 import SideNav from "./SideNav";
-import theme from "../../Styles/Theme";
-import { flexCenter } from "../../Styles/Theme";
+import theme, { flexCenter } from "../../Styles/Theme";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
-function Nav(props) {
+function Nav({ cart, removeFromCart, removeAll }) {
   const [scrollTop, setScrollTop] = useState(0);
   const [sideMenu, setsideMenu] = useState(null);
   const [cartBox, setCartBox] = useState(false);
@@ -44,8 +47,16 @@ function Nav(props) {
       : alert("로그인이 필요한 서비스입니다") || history.push("/login");
   };
 
+  const handleRemove = (id) => {
+    removeFromCart(id);
+  };
+
+  const handleAllRemove = () => {
+    removeAll();
+  };
+
   return (
-    <NavContainer scrollTop={scrollTop}>
+    <NavContainer onMouseLeave={() => setCartBox(false)} scrollTop={scrollTop}>
       <MenuTab onClick={showSideMenu}>
         <div className="hamburger">
           <span></span>
@@ -61,20 +72,45 @@ function Nav(props) {
         {scrollTop >= 0.047 && <span>COVID-19 in the United States</span>}
       </HomeTab>
       <RightTab>
-        {/* <span>{localStorage.getItem("")}</span> */}
-        <img
-          className="cart"
-          onMouseEnter={() => setCartBox(true)}
-          onMouseLeave={() => setCartBox(false)}
-          onClick={handleTokenCheck}
-          alt="cart"
-          src="./images/svg/cart.svg"
-        />
-        <div>☌</div>
+        <span>{cart.length}</span>
+        {cart.length > 0 ? (
+          <img
+            className="cart-red"
+            onMouseEnter={() => setCartBox(true)}
+            onClick={handleTokenCheck}
+            alt="cart"
+            src="./images/svg/cart-red.svg"
+          />
+        ) : (
+          <img
+            className="cart"
+            onMouseEnter={() => setCartBox(true)}
+            onClick={handleTokenCheck}
+            alt="cart"
+            src="./images/svg/cart.svg"
+          />
+        )}
       </RightTab>
       {cartBox && (
         <CartBoxContainer>
           <h3>Data Cart</h3>
+          <span>{cart.length} Dataset</span>
+          <ul>
+            {cart.map((item) => {
+              return (
+                <>
+                  <li>
+                    {item.title}
+                    <button onClick={() => handleRemove(item.id)}>X</button>
+                  </li>
+                </>
+              );
+            })}
+          </ul>
+          <ClearBtn onClick={() => handleAllRemove()}>
+            <FontAwesomeIcon className="edit" icon={faTrashAlt} />
+            <p>Clear Cart</p>
+          </ClearBtn>
         </CartBoxContainer>
       )}
       <SideNav
@@ -86,7 +122,13 @@ function Nav(props) {
   );
 }
 
-export default Nav;
+const mapStateToProps = (state) => {
+  return {
+    cart: state.cart,
+  };
+};
+
+export default connect(mapStateToProps, { removeFromCart, removeAll })(Nav);
 
 const NavContainer = styled.nav`
   height: 40px;
@@ -180,6 +222,12 @@ const RightTab = styled.div`
   ${flexCenter}
   opacity:0.7;
   cursor: pointer;
+  font-size: 15px;
+  color: ${theme.white};
+
+  span {
+    margin-right: 8px;
+  }
 
   .cart {
     width: 22px;
@@ -190,13 +238,6 @@ const RightTab = styled.div`
     transition: 0.3s ease-in-out;
     opacity: 1;
   }
-
-  div {
-    margin-left: 20px;
-    font-size: 25px;
-    color: ${theme.white};
-    transform: rotate(100deg);
-  }
 `;
 
 const CartBoxContainer = styled.div`
@@ -204,16 +245,59 @@ const CartBoxContainer = styled.div`
   height: 230px;
   top: 40px;
   right: 30px;
+  padding: 30px;
   position: absolute;
   background-color: ${theme.grey};
-  animation: showBox 1s;
+  animation: showBox 0.3s;
+  overflow: hidden;
+
+  span {
+    font-size: 14px;
+    opacity: 0.7;
+  }
+
+  ul {
+    height: 100px;
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 20px;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
 
   @keyframes showBox {
     0% {
       width: 100px;
+      height: 100px;
     }
     100% {
       width: 300px;
+      height: 230px;
     }
+  }
+`;
+
+const ClearBtn = styled.div`
+  width: 230px;
+  height: 30px;
+  margin-top: 10px;
+  ${flexCenter};
+  background-color: ${theme.orange};
+  color: ${theme.white};
+  cursor: pointer;
+
+  p {
+    margin-left: 10px;
   }
 `;

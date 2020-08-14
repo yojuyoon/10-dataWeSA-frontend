@@ -1,4 +1,8 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "../actions/cartActions";
+import {
+  ADD_TO_CART,
+  REMOVE_FROM_CART,
+  REMOVE_ALL,
+} from "../actions/cartActions";
 
 const INITIAL_STATE = [];
 
@@ -13,6 +17,8 @@ const cartReducer = (state = INITIAL_STATE, action) => {
       return [...state, action.payload];
     case REMOVE_FROM_CART:
       return state.filter((item) => item.id !== action.payload);
+    case REMOVE_ALL:
+      return [];
     default:
       return state;
   }

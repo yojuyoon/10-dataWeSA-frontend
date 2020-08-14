@@ -10,10 +10,11 @@ function Item({ item, removeFromCart }) {
   const handleRemove = () => {
     removeFromCart(item.id);
   };
+
   return (
     <AddedDataContainer>
       <div className="addedData">
-        <img alt="img" src={item.src}/>
+        <img alt="img" src={item.src} />
       </div>
       <div className="addedDataName">
         <h4>
