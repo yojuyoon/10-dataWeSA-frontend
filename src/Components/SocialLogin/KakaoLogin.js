@@ -1,13 +1,13 @@
 import axios from "axios";
-import { kakaoScriptKey } from "../../key";
-import { kakaoAPI } from "../../config";
+import { kakaoScriptKey } from "../../../src/keyConfig";
+import { socialLoginAPI } from "../../config";
 
 export const KakaoLogin = (history) => {
   window.Kakao.init(`${kakaoScriptKey}`);
   window.Kakao.Auth.login({
     success: (response) => {
       axios
-        .get(`${kakaoAPI}/kakao`, {
+        .get(`${socialLoginAPI}/user/kakao`, {
           headers: {
             "Content-Type": "application/json",
             Authorization: response.access_token,

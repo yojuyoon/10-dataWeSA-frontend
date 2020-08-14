@@ -9,12 +9,7 @@ import ChartContainer from "./ChartContainer";
 import Loading from "../../Common/Loading";
 import Error from "../../Common/Error";
 import mapOptions from "./MapChartOptions/mapOptions";
-import {
-  chartMapBedDataAPI,
-  chartMapICUDataAPI,
-  chartMapRegisterDataAPI,
-  chartMapPhysDataAPI,
-} from "../../../config";
+import { chartMapAPI } from "../../../config";
 
 highchartsMap(Highcharts);
 drilldown(Highcharts);
@@ -29,10 +24,10 @@ const ChartMap = ({ id }) => {
   useEffect(() => {
     let api = "";
 
-    if (id === 1) api = chartMapBedDataAPI;
-    if (id === 2) api = chartMapICUDataAPI;
-    if (id === 3) api = chartMapRegisterDataAPI;
-    if (id === 4) api = chartMapPhysDataAPI;
+    if (id === 1) api = `${chartMapAPI}/beds`;
+    if (id === 2) api = `${chartMapAPI}/icu`;
+    if (id === 3) api = `${chartMapAPI}/icu`;
+    if (id === 4) api = `${chartMapAPI}/icu`;
 
     axios
       .get(api, {

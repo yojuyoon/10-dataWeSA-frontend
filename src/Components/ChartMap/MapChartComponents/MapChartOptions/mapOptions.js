@@ -15,15 +15,12 @@ const mapOptions = (id, outputData) => {
     ] = require(`@highcharts/map-collection/countries/us/us-all.geo.json`);
 
     let data = Highcharts.geojson(Highcharts.maps["countries/us/us-all"]),
-      separators = Highcharts.geojson(
-        Highcharts.maps["countries/us/us-all"],
-        "mapline"
-      );
+      separators = Highcharts.geojson(Highcharts.maps["countries/us/us-all"], "mapline");
 
     data.forEach((el, i) => {
       el.drilldown = el.properties["hc-key"];
       el.id = outputData[i].id;
-      el.year = outputData[i].years;
+      el.year = outputData[i].year;
       el.value = outputData[i].value;
       if (id !== 1) el.total = outputData[i].total;
     });
@@ -37,19 +34,19 @@ const mapOptions = (id, outputData) => {
 
       case 2:
         dataClassTemp = mapOptionFun.dataClassTempICU;
-        outputKeys = ["id", "year", "value", "count"];
+        outputKeys = ["id", "year", "value", "result"];
         title = "ICU Beds per 1,000 Population";
         break;
 
       case 3:
         dataClassTemp = mapOptionFun.dataClassTempPys;
-        outputKeys = ["id", "year", "value", "count"];
+        outputKeys = ["id", "year", "value", "result"];
         title = "Physicians and Surgeons per 1,000 Population";
         break;
 
       case 4:
         dataClassTemp = mapOptionFun.dataClassTempReg;
-        outputKeys = ["id", "year", "value", "count"];
+        outputKeys = ["id", "year", "value", "result"];
         title = "Registered Nurses per 1,000 Population";
         break;
 
@@ -70,15 +67,11 @@ const mapOptions = (id, outputData) => {
               let chart = this;
               let mapKey = "countries/us/" + e.point.drilldown + "-all";
 
-              Highcharts.maps[
-                mapKey
-              ] = require(`@highcharts/map-collection/${mapKey}.geo.json`);
+              Highcharts.maps[mapKey] = require(`@highcharts/map-collection/${mapKey}.geo.json`);
 
               let fail = setTimeout(function () {
                 if (!Highcharts.maps[mapKey]) {
-                  chart.showLoading(
-                    '<i class="icon-frown"></i> Failed loading ' + e.point.name
-                  );
+                  chart.showLoading('<i class="icon-frown"></i> Failed loading ' + e.point.name);
 
                   fail = setTimeout(function () {
                     chart.hideLoading();
@@ -86,9 +79,7 @@ const mapOptions = (id, outputData) => {
                 }
               }, 3000);
 
-              chart.showLoading(
-                '<i class="icon-spinner icon-spin icon-3x"></i>'
-              );
+              chart.showLoading('<i class="icon-spinner icon-spin icon-3x"></i>');
 
               highData = Highcharts.geojson(Highcharts.maps[mapKey]);
               chart.hideLoading();

@@ -157,13 +157,13 @@ const mapOptionFun = {
   },
 
   pointFormatterFuncReg: (data) => {
-    return `<h1>${this.id}</h1>
+    return `<h1>${data.id}</h1>
             <hr/>
-            <b>year :                               ${this.year}</b>
+            <b>year :                               ${data.year}</b>
             <hr/>
-            <b>Registered Nurses :                  ${this.total}k</b>
+            <b>Registered Nurses :                  ${data.total}k</b>
             <hr/>
-            <b>Per 1,000 Population :               ${this.value}</b>`;
+            <b>Per 1,000 Population :               ${data.value}</b>`;
   },
 };
 

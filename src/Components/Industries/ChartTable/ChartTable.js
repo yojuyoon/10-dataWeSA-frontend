@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Loading from "../../Common/Loading";
 import Error from "../../Common/Error";
 import tableOption from "./tableOption";
-import { chartTableAPI } from "../../../config";
+import { industriesAPI } from "../../../config";
 import theme from "../../../Styles/Theme";
 
 const ChartTable = () => {
@@ -16,7 +16,7 @@ const ChartTable = () => {
 
   useEffect(() => {
     axios
-      .get(chartTableAPI)
+      .get(`${industriesAPI}/graph`)
       .then((res) => {
         setTableData(res.data.data);
       })
