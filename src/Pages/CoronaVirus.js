@@ -11,7 +11,7 @@ import Loading from "../Components/Common/Loading";
 import Error from "../Components/Common/Error";
 import { options } from "../Components/Daily/DailyOptions";
 import { categories } from "../Components/Daily/DailySelect";
-import { dailyAPI } from "../config";
+import { dataTableAPI } from "../config";
 import theme from "../Styles/Theme";
 
 function CoronaVirus() {
@@ -46,14 +46,17 @@ function CoronaVirus() {
     } else if (selectedIndex === selected.length - 1) {
       newSelected = newSelected.concat(selected.slice(0, -1));
     } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(selected.slice(0, selectedIndex));
+      newSelected = newSelected.concat(
+        selected.slice(0, selectedIndex),
+        selected.slice(selectedIndex + 1),
+      );
     }
 
     setSelected(newSelected);
   };
 
   useEffect(() => {
-    if (endPoint.length > 0) {
+    if (endPoint.length) {
       getRequest("any");
     }
   }, [selected, selectedCategory]);
@@ -62,7 +65,7 @@ function CoronaVirus() {
     if (indicator === "first") {
       try {
         setLoading(!loading);
-        const response = await axios.get(`${dailyAPI}/daily/${endPoint}`);
+        const response = await axios.get(`${dataTableAPI}/daily/${endPoint}`);
         const seriesData = response.data.data.map((picked) => {
           return {
             title: selectedCategory,
@@ -80,7 +83,7 @@ function CoronaVirus() {
       }
     } else {
       try {
-        const response = await axios.get(`${dailyAPI}/daily/${endPoint}`);
+        const response = await axios.get(`${dataTableAPI}/daily/${endPoint}`);
         const seriesData = response.data.data.map((picked) => {
           return {
             title: selectedCategory,
@@ -104,7 +107,7 @@ function CoronaVirus() {
 
   const getApi = async () => {
     try {
-      const response = await axios.get(`${dailyAPI}/daily`);
+      const response = await axios.get(`${dataTableAPI}/daily`);
       setData(response.data.data);
     } catch (e) {
       setError(e);

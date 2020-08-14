@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Treemap } from "d3plus-react";
 import theme from "../../Styles/Theme";
 import { methods } from "./methods";
-import { treeMapAPI } from "../../config";
+import { industriesAPI } from "../../config";
 import Loading from "../Common/Loading";
 import Error from "../Common/Error";
 
@@ -19,7 +19,7 @@ export default function TreeMap() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${treeMapAPI}/chart`);
+      const response = await axios.get(`${industriesAPI}/chart`);
       let tmpData = { ...data, data: response.data.data };
       setData(tmpData);
     } catch (e) {

@@ -4,7 +4,9 @@ import SummarizedInfo from "../Components/Industries/SummarizedInfo";
 import About from "../Components/Industries/About";
 import WorkForce from "../Components/Industries/WorkForce";
 import Occupations from "../Components/Industries/Occupations";
+import TreeMap from "../Components/Industries/TreeMap";
 import ChartTable from "../Components/Industries/ChartTable/ChartTable";
+
 import { StatDataAPI } from "../config";
 
 export default function Industries() {

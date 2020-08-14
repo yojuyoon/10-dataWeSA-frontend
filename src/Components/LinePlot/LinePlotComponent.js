@@ -22,11 +22,17 @@ function LinePlotComponent(props) {
   };
 
   const fetchData = async () => {
+    let response;
     try {
       setLoading(true);
-      const response = await axios.get(
-        `${chartDataAPI}/mobility?place=${selectedCategory}&state=${endPoint}`,
-      );
+      if (endPoint === "") {
+        response = await axios.get(`${chartDataAPI}/mobility?place=${selectedCategory}`);
+      } else {
+        response = await axios.get(
+          `${chartDataAPI}/mobility?place=${selectedCategory}&state=${endPoint}`,
+        );
+      }
+
       let tmpOption = { ...optionData, series: response.data.series };
       setOptionData(tmpOption);
     } catch (e) {
@@ -38,7 +44,7 @@ function LinePlotComponent(props) {
 
   useEffect(() => {
     fetchData();
-  }, [selectedCategory]);
+  }, [selectedCategory, endPoint]);
 
   if (loading) return <Loading />;
   if (error) return <Error />;

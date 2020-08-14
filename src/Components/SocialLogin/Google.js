@@ -3,7 +3,8 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import theme from "../../Styles/Theme";
 import axios from "axios";
-import { googleLoginAPI } from "../../config";
+import { socialLoginAPI } from "../../config";
+import { googleClientId } from "../../keyConfig";
 
 function Google() {
   const googleLoginBtn = useRef(null);
@@ -18,7 +19,7 @@ function Google() {
     window.googleSDKLoaded = () => {
       window.gapi.load("auth2", () => {
         const auth2 = window.gapi.auth2.init({
-          client_id: "347610267573-8r3r698evj630v56r5bes4q6dks1rqf0.apps.googleusercontent.com",
+          client_id: `${googleClientId}.apps.googleusercontent.com`,
           scope: "profile email",
         });
 
@@ -51,7 +52,7 @@ function Google() {
 
   const GoogleApiPOST = (token) => {
     axios
-      .get(`${googleLoginAPI}/google`, {
+      .get(`${socialLoginAPI}/user/google`, {
         headers: {
           Authorization: token,
           "Content-Type": "application/json",

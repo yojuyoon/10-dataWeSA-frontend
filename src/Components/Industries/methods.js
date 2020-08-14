@@ -3,10 +3,6 @@ export const methods = {
   data: [],
   size: (d) => d.value,
   tooltipConfig: {
-    title: function (d) {
-      var txt = d.name;
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-    },
     body: function (d) {
       var table = "<table class='tooltip-table' style='width: 100%; text-align: right;'>";
       table +=
