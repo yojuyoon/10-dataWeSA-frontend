@@ -4,7 +4,7 @@ const tableOption = (tableData) => {
   const resultOption = {
     chart: {
       type: "column",
-      width: 880,
+      width: 1250,
       height: 400,
       backgroundColor: "#E9E9E9",
     },

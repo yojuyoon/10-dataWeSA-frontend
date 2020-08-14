@@ -24,7 +24,7 @@ const ChartMap = ({ id }) => {
   useEffect(() => {
     let api = "";
 
-    if (id === 1) api = `${chartMapAPI}/beds`;
+    if (id === 1) api = `${chartMapAPI}/bed`;
     if (id === 2) api = `${chartMapAPI}/icu`;
     if (id === 3) api = `${chartMapAPI}/icu`;
     if (id === 4) api = `${chartMapAPI}/icu`;
