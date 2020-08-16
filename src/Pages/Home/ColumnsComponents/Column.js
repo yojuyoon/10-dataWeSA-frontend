@@ -16,7 +16,10 @@ const Column = ({ data, addToCart }) => {
     if (data.id === 11) {
       history.push("/Industries");
     } else {
-      if (window.confirm("장바구니로 이동하시겠습니까?")) {
+      if (
+        sessionStorage.getItem("token") &&
+        window.confirm("장바구니로 이동하시겠습니까?")
+      ) {
         history.push("/cart");
       }
       addToCart(data);

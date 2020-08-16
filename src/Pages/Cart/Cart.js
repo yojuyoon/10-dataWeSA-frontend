@@ -126,7 +126,7 @@ const CartContainer = styled.div`
 
 const RightContainer = styled.div`
   width: 30%;
-  height: 50%;
+  height: 45%;
   top: 10%;
   right: 4%;
   position: absolute;

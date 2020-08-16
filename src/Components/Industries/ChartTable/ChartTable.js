@@ -52,10 +52,11 @@ const ChartTable = () => {
         </ol>
 
         <p>
-          On average, Asian employees in the Restaurants & Food Services Industry Group earn 1.21
-          times more than other races and ethnicities. This chart shows the race and ethnicity-based
-          wage disparities in the 5 most common occupations in the Restaurants & Food Services
-          Industry Group.
+          On average, Asian employees in the Restaurants & Food Services
+          Industry Group earn 1.21 times more than other races and ethnicities.
+          This chart shows the race and ethnicity-based wage disparities in the
+          5 most common occupations in the Restaurants & Food Services Industry
+          Group.
         </p>
         <p className="sourceGroup">
           Data from the Census Bureau
@@ -64,7 +65,10 @@ const ChartTable = () => {
           </a>
         </p>
       </LeftContainer>
-      <HighchartsReact highcharts={Highcharts} options={tableOption(tableData)} />
+      <HighchartsReact
+        highcharts={Highcharts}
+        options={tableOption(tableData)}
+      />
     </ChartTableContainer>
   );
 };

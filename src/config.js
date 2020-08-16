@@ -1,7 +1,7 @@
 export const StatDataAPI = "http://localhost:3000";
 export const socialLoginAPI = "http://10.58.6.11:8080";
 export const chartDataAPI = "http://10.58.6.11:8080";
-export const chartMapAPI = "http://15.164.220.49:8080/hospital";
+export const chartMapAPI = "http://15.164.220.49:8080";
 export const dataTableAPI = "http://15.164.220.49:8080";
 export const industriesAPI = "http://10.58.6.11:8080";
 export const chartMapDataAPI = "http://10.58.1.62:8080/hospital/beds";
